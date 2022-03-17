@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Employees{% endblock %}</title>
+</head>
+<body>
+
+<!-- Ordering approach -->
+<ul>
+    <!-- The Designer position was put under the Engineering manager, verify job position hierarchy. -->
+    {% if not employees_data %}
+        {{ error_message }}
+    {% else %}
+        <li>
+            {% for employee in employees_data %}
+                {% if employee.manager_id == None %}
+                    {{ employee.title }}: {{ employee.name }}
+                {% endif %}
+            {% endfor %}
+        </li>
+        <ul>
+            <li>
+                {% for employee in employees_data %}
+                    {% if employee.title == "CTO" and employee.manager_id == 2 %}
+                        {{ employee.title }}: {{ employee.name }}
+                    {% endif %}
+                {% endfor %}
+
+                <ul>
+                    <li>
+                        {% for employee in employees_data %}
+                            {% if employee.title == "Engineering Manager" and employee.manager_id == 1 %}
+                                {{ employee.title }}: {{ employee.name }}
+                            {% endif %}
+                        {% endfor %}
+
+                        <ul>
+                            {% for employee in employees_data|dictsort:"name" %}
+                                {% if employee.manager_id == 8 or employee.manager_id == 32 %}
+                                    <li>
+                                        {{ employee.title }}: {{ employee.name }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+        <ul>
+            <li>
+                {% for employee in employees_data %}
+                    {% if employee.title == "COO" %}
+                        {{ employee.title }}: {{ employee.name }}
+                    {% endif %}
+                {% endfor %}
+
+                <ul>
+                    <li>
+                        {% for employee in employees_data %}
+                            {% if employee.manager_id == 4 %}
+                                {{ employee.title }}: {{ employee.name }}
+                            {% endif %}
+                        {% endfor %}
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <ul>
+            {% for employee in employees_data %}
+                {% if employee.title == "Head of Product" %}
+                    <li>
+                        {{ employee.title }}: {{ employee.name }}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+</ul>
+
+</body>
+</html>
