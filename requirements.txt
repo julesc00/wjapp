@@ -10,6 +10,7 @@ psycopg2 @ file:///Users/builder/ci_310/psycopg2_1642535040511/work
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
 PySocks @ file:///Users/builder/ci_310/pysocks_1642536366386/work
+python-decouple==3.6
 pytz==2021.3
 requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
 sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
