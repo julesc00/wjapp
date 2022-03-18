@@ -9,9 +9,10 @@
 </head>
 <body>
 
-<!-- Ordering approach -->
+<!-- Ordering approach, maybe here I could do some later refactoring for a less expensive algorithm -->
 <ul>
-    <!-- The Designer position was put under the Engineering manager, verify job position hierarchy. -->
+    <!-- The Designer position was put under the Engineering manager, verify job position hierarchy.
+    -->
     {% if not employees_data %}
         {{ error_message }}
     {% else %}
