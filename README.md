@@ -3,4 +3,5 @@
 
 ### Instructions
 1. Environment was created with conda.
-2. requests was the only library installed.
+2. `requests` library installed.
+3. `python-decouple` library installed.
